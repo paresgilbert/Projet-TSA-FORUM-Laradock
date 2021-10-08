@@ -1,7 +1,6 @@
 .idea
 laradock/logs
 /data
-laradock.env
 /laradock/.project
 .docker-sync
 laradock/jenkins/jenkins_home
@@ -9,21 +8,11 @@ laradock/jenkins/jenkins_home
 laradock/logstash/pipeline/*.conf
 laradock/logstash/config/pipelines.yml
 
-/tsa-forum/nginx/ssl/*.crt
-/tsa-forum/nginx/ssl/*.key
-/tsa-forum/nginx/ssl/*.csr
-
-/tsa-forum/apache2/ssl/*.crt
-/tsa-forum/apache2/ssl/*.key
-/tsa-forum/apache2/ssl/*.csr
-/tsa-forum/apache2/ssl/*.org
-
 /.devcontainer/*
 !/.devcontainer/devcontainer.example.json
 !/.devcontainer/docker-compose.extend-example.yml
 
-docker-compose.custom.yml
 
 .DS_Store
-/tsa-forum/node-modules
-/tsa-forum/vendor
+tsa-forum/node-modules
+tsa-forum/vendor

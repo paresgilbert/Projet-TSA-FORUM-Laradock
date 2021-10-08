@@ -6,6 +6,8 @@ if [ ! -f /etc/nginx/ssl/default.crt ]; then
     openssl x509 -req -days 365 -in "/etc/nginx/ssl/default.csr" -signkey "/etc/nginx/ssl/default.key" -out "/etc/nginx/ssl/default.crt"
     chmod 644 /etc/nginx/ssl/default.key
 fi
+# ajouté gp
+    chmod -R 777 /var/www/tsa-forum/storage
 
 # Start crond in background
 crond -l 2 -b

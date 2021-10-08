@@ -1,8 +1,8 @@
-APP_NAME=laraveldock
+APP_NAME=Laravel
 APP_ENV=local
-APP_KEY=base64:NAMrvsIb4fOiFPDDfH+pa0OpL0gmgt24+8InCBRt6es=
+APP_KEY=base64:WqvIsN6XYA9NMHjTWIthKC1Mdi+WWi7/iRtz/GnibLQ=
 APP_DEBUG=true
-APP_URL=http://localhost
+APP_URL=http://tsa-forum.test
 
 LOG_CHANNEL=stack
 LOG_LEVEL=debug
@@ -10,9 +10,9 @@ LOG_LEVEL=debug
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=bloglaravel
-DB_USERNAME=root
-DB_PASSWORD=root
+DB_DATABASE=tsaforum
+DB_USERNAME=default
+DB_PASSWORD=secret
 
 BROADCAST_DRIVER=log
 CACHE_DRIVER=file
