@@ -23,9 +23,8 @@
             Chargement ...
         </div>
         <hr>
-<!--envoyer le message -->
         <div v-if="user && user.email" class="bg-white shadow-lg w-full p-4 my-4">
-            <span class="text-3xl font-bold hover:text-gray-700 pb-4">Ajouter un commentaire</span>
+            <span class="text-3xl font-bold hover:text-gray-700 pb-4">Ajoutre un commentaire</span>
             <h3 class="font-bold text-gray-900">{{ user.name }}</h3>
             <span class="text-xm" v-if="comment_id" v-on:click="cancelResponse">Annuler répondre</span>
             <textarea placeholder="Votre commentaire" class="h-32 bg-gray-100 w-full" v-model="message"></textarea>
@@ -35,56 +34,53 @@
 </template>
 
 <script>
-export default {
-    data: function () {
-        return {
-            chargement: true,
-            message: null,
-            comment_id: null,
-            user: [],
-            comments: []
-        }
-    },
-    props: ['post_id'],
-    mounted() {
-        axios.get('/api/user')
+    export default {
+        data: function () {
+            return {
+                chargement: true,
+                message: null,
+                comment_id: null,
+                user: [],
+                comments: []
+            }
+        },
+        props: ['post_id'],
+        mounted() {
+            axios.get('/api/user')
             .then(response => {
                 this.user = response.data;
             });
-        this.getPost();
-    },
-    methods: {
-        cancelResponse() {
-            this.comment_id = null;
-            this.message = null;
-
+            this.getPost();
         },
-        responseComment(commentId) {
-            this.comment_id = commentId;
-        },
-        sendComment() {
-            if (this.message !== '') {
-                this.chargement = true;
-                let obj = this;
-                axios.post('/api/comments/create', {
-                    message:this.message,
-                    post_id: this.post_id,
-                    comment_id: this.comment_id,
-                })
+        methods: {
+            cancelResponse() {
+                this.comment_id = null;
+            },
+            responseComment(commentId) {
+                this.comment_id = commentId;
+            },
+            sendComment() {
+                if (this.message !== '') {
+                    this.chargement = true;
+                    let obj = this;
+                    axios.post('/api/comments/create', {
+                        message: this.message,
+                        post_id: this.post_id,
+                        comment_id: this.comment_id,
+                    })
                     .then(function (response) {
-                        obj.cancelResponse();
                         obj.getPost();
                     })
-            }
-        },
-        getPost() {
-            let obj = this;
-            axios.get('/api/articles/' + this.post_id)
+                }
+            },
+            getPost() {
+                let obj = this;
+                axios.get('/api/articles/' + this.post_id)
                 .then(function (response) {
                     obj.comments = response.data;
                     obj.chargement = false;
                 });
+            }
         }
     }
-}
 </script>

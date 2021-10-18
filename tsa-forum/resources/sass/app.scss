@@ -7,13 +7,7 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-// composants Tailwindcss avec postcss pour webpack
+// TailwindCSS
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-/*
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-*/
